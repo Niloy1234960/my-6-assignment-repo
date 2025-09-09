@@ -146,7 +146,7 @@ const addCard = (e) => {
 const showAddCard = (bookmarks) => {
   bookmarkContainer.innerHTML = "";
 
-  let total = 0; // shuru te 0
+  let total = 0; 
 
   bookmarks.forEach((bookmark) => {
     let bookmarkPrice = parseInt(bookmark.price);
