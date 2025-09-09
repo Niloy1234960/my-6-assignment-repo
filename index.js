@@ -140,19 +140,33 @@ const addCard = (e) => {
   });
   showAddCard(bookmarks);
 };
-let money = 0;
+
+// total price 
+
 const showAddCard = (bookmarks) => {
   bookmarkContainer.innerHTML = "";
+
+  let total = 0; // shuru te 0
+
   bookmarks.forEach((bookmark) => {
-    total = money + bookmark.price;
+    let bookmarkPrice = parseInt(bookmark.price);
+    total += bookmarkPrice; // shudhu jog koro
+
     bookmarkContainer.innerHTML += `
-        <div class=" my-2 p-1 bg-[#F0FDF4] rounded-lg ">
-        <div class="flex justify-between px-2"><h1 >${bookmark.title}</h1> <h1>${bookmark.price}</h1></div> <br>
+      <div class=" my-2 p-1 bg-[#F0FDF4] rounded-lg ">
+        <div class="flex justify-between px-2">
+          <h1>${bookmark.title}</h1> 
+          <h1>${bookmark.price}</h1>
+        </div> <br>
         <button onclick="deleteBtn()" class="btn rounded-xl bg-[#F0FDF4] hover:bg-[#15803d] mt-5">Delete</button>
-        </div>
-        `;
+      </div>
+    `;
   });
+
+  totalBtn.innerText = total; // loop shesh hole set koro
 };
+
+
 
 const deleteBtn = (id) => {
   fetch(`https://openapi.programming-hero.com/api/plants/`)
